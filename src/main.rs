@@ -1,9 +1,14 @@
 use chrono::{DateTime, Local};
 fn main() {
-    let world: &str = "world!!!!!!!!!!!!!";
-    println!("Hello {}", world);
     let dt: DateTime<Local> = Local::now();
     let timestamp: i64 = dt.timestamp();
+    let mut world: &str = "";
 
-    println!("{}", timestamp);
+    if timestamp % 2 == 0 {
+        println!("{}", timestamp);
+        world = "devided!!!!!!!!!!!!!";
+    } else {
+        world = "non devided!!!!!!!!!!!!!";
+    }
+    println!("Hello {}", world);
 }
