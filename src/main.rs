@@ -1,4 +1,5 @@
 use chrono::{DateTime, Local};
+// use std::env::args;
 use std::fs::read_to_string;
 
 fn main() {
@@ -10,7 +11,7 @@ fn main() {
         "non devided!!!!!!!!!!!!!"
     };
     println!("Hello {}", world);
-    cat_cmd("./src/main.rs")
+    cat_cmd("./src/main.rs");
 }
 
 fn cat_cmd(path: &str) {
