@@ -1,5 +1,4 @@
 use chrono::{DateTime, Local};
-// use std::env::args;
 use std::fs::read_to_string;
 
 fn main() {
@@ -11,10 +10,18 @@ fn main() {
         "non devided!!!!!!!!!!!!!"
     };
     println!("Hello {}", world);
-    cat_cmd("./src/main.rs");
+
+    println!("標準入力テストです。任意の値を入力してください。");
+    match std::env::args().nth(1) {
+        Some(path) => cat_cmd(path),
+        None => println!("No path is specified!"),
+    }
+    cat_cmd("./Cargo.toml".to_string());
 }
 
-fn cat_cmd(path: &str) {
+fn cat_cmd(path: String) {
+    println!("\n{}", path);
+    println!("###########################################\n");
     match read_to_string(path) {
         Ok(content) => print!("{}", content),
         Err(reason) => print!("{}", reason),
